@@ -12,17 +12,6 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-
-app.use(express.static(path.join(__dirname, '../dist')));
-
-// Gestisci le richieste non catturate, inviando sempre il file index.html
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist/index.html'));
-});
-
-
-
-
 // Configurazione SQL Server
 const dbConfig = {
   user: 'sa',      // Il tuo username di SQL Server
@@ -196,6 +185,18 @@ app.put('/api/firmaUscita', async (req, res) => {
     await sql.close();
   }
 });
+
+// Cambia "<nome-app>" con il nome della tua app Angular nella cartella "dist"
+const distFolder = path.join(__dirname, '../dist/registro-visitatori');
+
+// Servire i file statici di Angular
+app.use(express.static(distFolder));
+
+// Reindirizzare tutte le richieste alla homepage Angular (index.html)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(distFolder, 'index.html'));
+});
+
 
 // Avvio del server
 app.listen(port, () => {

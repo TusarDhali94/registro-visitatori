@@ -2,12 +2,10 @@
   "name": "registro-visitatori",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "concurrently \"ng serve\" \"npm run backend\"",
+    "start": "node server-visitatori/server.js",
+    "build": "ng build --configuration=production",
     "backend": "nodemon server-visitatori/server.js",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "start:dev": "concurrently \"ng serve\" \"npm run backend\""
   },
   "private": true,
   "dependencies": {
