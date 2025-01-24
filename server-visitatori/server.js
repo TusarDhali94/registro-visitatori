@@ -2,7 +2,6 @@ const express = require('express');
 const sql = require('mssql');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const path = require('path');
 const moment = require('moment'); //Questo modulo per per prendere la data corrente 
 
 const app = express();
@@ -185,18 +184,6 @@ app.put('/api/firmaUscita', async (req, res) => {
     await sql.close();
   }
 });
-
-// Cambia "<nome-app>" con il nome della tua app Angular nella cartella "dist"
-const distFolder = path.join(__dirname, '../dist/registro-visitatori');
-
-// Servire i file statici di Angular
-app.use(express.static(distFolder));
-
-// Reindirizzare tutte le richieste alla homepage Angular (index.html)
-app.get('*', (req, res) => {
-  res.sendFile(path.join(distFolder, 'index.html'));
-});
-
 
 // Avvio del server
 app.listen(port, () => {
