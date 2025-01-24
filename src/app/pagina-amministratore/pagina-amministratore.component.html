@@ -1,0 +1,83 @@
+<div class="mat-elevation-z8">
+  <!-- Toolbar sopra la tabella -->
+  <mat-toolbar color="primary" class="toolbar">
+    <span>Gestione Registro</span>
+    <span class="spacer"></span>
+    <button mat-icon-button aria-label="Stampa" (click)="stampaTabella()">
+      <mat-icon>print</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Logout" (click)="esciAdmin()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <!-- Contenitore delle barre di ricerca -->
+  <div style="margin: 20px 0; display: flex; gap: 50px; align-items: flex-end;">
+    <!-- Barra di ricerca per Data -->
+    <mat-form-field>
+      <mat-label>Filtra per Data Entrata</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="dateSelezionate" (ngModelChange)="FiltroTramiteData()">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Barra di ricerca per Nome -->
+    <mat-form-field>
+      <mat-label>Filtra per Nome Operatore</mat-label>
+      <input matInput placeholder="Inserisci il nome" [(ngModel)]="filtroNome" (ngModelChange)="FiltroTramiteNome()">
+    </mat-form-field>
+  </div>
+
+  <!-- Tabella con paginazione -->
+  <mat-table [dataSource]="dataSource" >
+    <ng-container matColumnDef="Operatore">
+      <mat-header-cell *matHeaderCellDef> Operatore </mat-header-cell>
+      <mat-cell *matCellDef="let visitatore"> {{ visitatore.Operatore }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="RiferenteInterno">
+      <mat-header-cell *matHeaderCellDef> Referente Interno </mat-header-cell>
+      <mat-cell *matCellDef="let visitatore"> {{ visitatore.RiferenteInterno }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Ditta">
+      <mat-header-cell *matHeaderCellDef> Ditta </mat-header-cell>
+      <mat-cell *matCellDef="let visitatore"> {{ visitatore.Ditta }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Email">
+      <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+      <mat-cell *matCellDef="let visitatore"> {{ visitatore.Email }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="FirmaIn">
+      <mat-header-cell *matHeaderCellDef> Firma In </mat-header-cell>
+      <mat-cell *matCellDef="let visitatore">
+        <img *ngIf="visitatore.FirmaIn" [src]="visitatore.FirmaIn" alt="Firma In" style="max-height: 30px;">
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="DataEntrata">
+      <mat-header-cell *matHeaderCellDef> Data Entrata </mat-header-cell>
+      <mat-cell *matCellDef="let visitatore"> {{ visitatore.DataEntrata | date:'dd/MM/yyyy HH:mm:ss':'UTC' }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="FirmaOut">
+      <mat-header-cell *matHeaderCellDef> Firma Out </mat-header-cell>
+      <mat-cell *matCellDef="let visitatore">
+        <img *ngIf="visitatore.FirmaOut" [src]="visitatore.FirmaOut" alt="Firma Out" style="max-height: 30px;">
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="DataUscita">
+      <mat-header-cell *matHeaderCellDef> Data Uscita </mat-header-cell>
+      <mat-cell *matCellDef="let visitatore"> {{ visitatore.DataUscita | date:'dd/MM/yyyy HH:mm:ss':'UTC' }} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="colonne"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: colonne;"></mat-row>
+  </mat-table>
+
+  <!-- Paginatore -->
+  <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
+</div>

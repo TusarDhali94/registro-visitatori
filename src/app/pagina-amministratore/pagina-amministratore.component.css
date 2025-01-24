@@ -1,0 +1,90 @@
+/* Aggiungi una leggera ombreggiatura alla tabella */
+.mat-elevation-z8 {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+    margin: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: white;
+  }
+  
+  /* Imposta la larghezza della tabella al 100% per fare in modo che occupi tutta la larghezza disponibile */
+  mat-table {
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  /* Stile per le intestazioni della tabella */
+  .mat-header-cell {
+    background-color: #1976d2; /* Colore blu per le intestazioni */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  /* Stile per le celle della tabella */
+  .mat-cell {
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+    background-color: #f9f9f9; /* Colore di sfondo grigio chiaro per le celle */
+  }
+  
+  /* Aggiungi uno stile al passaggio del mouse sulle righe della tabella */
+  .mat-row:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Imposta la larghezza delle colonne specifiche (opzionale, se vuoi personalizzare) */
+  .mat-column-nome, .mat-column-cognome {
+    max-width: 150px;
+  }
+  
+  .mat-column-email {
+    max-width: 250px;
+  }
+  
+  /* Per l'immagine della firma, aggiungi uno stile per ridimensionarla */
+  img {
+    max-width: 100px;
+    max-height: 50px;
+    border-radius: 5px; /* Aggiungi un angolo arrotondato per la firma */
+    object-fit: cover;
+    display: block;
+    margin: 0 auto; /* Centra l'immagine */
+  }
+  
+  /* Stile generale per la pagina */
+  body {
+    font-family: 'Roboto', sans-serif; /* Usa un font chiaro */
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin: 0;
+  }
+  
+
+  
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+  }
+  .spacer {
+    flex: 1;
+  }
+
+
+  ::ng-deep .email-column {
+    min-width: 250px; /* Imposta la larghezza minima */
+    max-width: 400px; /* Imposta la larghezza massima */
+  }
+
+
+  
+  .mdc-data-table__cell {
+    word-break: break-all;
+}

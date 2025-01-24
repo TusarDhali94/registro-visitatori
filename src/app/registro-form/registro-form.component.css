@@ -1,0 +1,416 @@
+/* Contenitore principale con card */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+/**
+*!Bootsrap Icons 
+**/
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+/* Global reset */
+* {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box; /* Ensures the total width/height includes padding and border */
+}
+
+/* Card style */
+mat-card {
+  max-width: 1140px;
+  margin: 44px auto;
+  padding: 0;
+  border-radius: 8px;
+}
+
+/* Contenitore del layout con Flexbox */
+.content-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap */
+  align-items: center;
+  justify-content: space-between;
+  /*background-color: #53d4cd29;*/
+  background: linear-gradient(to left, #22c0dda6, rgb(83 212 205 / 0%));
+  padding: 19px;
+  border-radius: 8px;
+}
+
+/* Sezione di benvenuto (Logo a sinistra) */
+.left-section {
+  text-align: center;
+  margin-right: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  max-width: 366px;
+  margin-top: -289px;
+  padding: -13px;
+  position: relative;
+  bottom: 46px;
+  left: 7px;
+}
+
+/* Title styles */
+h2 {
+  color: #3f51b5;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* Sezione del form (a destra) */
+.right-section {
+  flex: 2;
+  width: 100%;
+}
+
+/* Stile per i campi di input */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+/* Bottone di submit */
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #3f51b5;
+  color: white;
+  border-radius: 4px;
+}
+
+button:disabled {
+  background-color: #9e9e9e;
+  cursor: not-allowed;
+}
+
+/* Card title styles */
+.mat-mdc-card-title,
+.mat-mdc-card-subtitle {
+  font-family: "Crimson Text", serif;
+  font-size: 16px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-right: 66px;
+  margin-bottom: 19px;
+  margin-left: 19px;
+}
+
+/* Label style */
+.label {
+    font-family: "Crimson Text", serif;
+    font-size: 17px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: -183px;
+    margin-top: 34px;
+    color: #212121;
+    position: relative;
+    bottom: 35px;
+}
+
+/* Signature container */
+.lb1 {
+  font-family: "Roboto", serif;
+  font-size: 17px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+.flout {
+  font-family: "Roboto", serif;
+  font-size: 17px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  position: relative;
+  top: 7px;
+}
+
+.common-title {
+  font-size: 40px;
+  font-family: "Crimson Text", serif;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-top: 20px;
+  position: relative;
+  left: 29px;
+  color: #1da2ca;
+  bottom: 25px;
+}
+
+/* Section 1 Text */
+.section1__left--text {
+  font-size: 14px;
+  font-family: "Work Sans", sans-serif;
+  color: rgb(0, 0, 0.25);
+}
+
+/* Signature styles */
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.signature-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.signature-pad {
+  border: 4px solid #11b3cf;
+  width: 100%;
+  height: 85px;
+}
+
+
+
+.signature-actions {
+  margin-top: 10px;
+}
+
+/* Admin icon */
+.admin-icon {
+  position: absolute;
+  bottom: 40px;
+  left: 30px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+
+.img-box {
+  position: relative;
+  bottom: -27px;
+  left: 16px;
+  width: 359px;
+}
+
+.img-box_NTS {
+  position: absolute;
+  bottom: 38px;
+  left: 287px;
+  width: 115px;
+}
+
+/* Input styling */
+::ng-deep .mat-mdc-text-field-wrapper {
+  background: white;
+}
+
+/* Autofill input background fix */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 0s 600000s, color 0s 600000s !important;
+}
+
+.spazio-vuoto {
+  height: 78px; /* Standard mat-form-field height */
+  margin-bottom: 16px;
+  background-color: transparent;
+}
+
+/* Media Query for medium screens */
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+    padding: 5px;
+  }
+   
+  .img-box {
+    position: relative;
+    bottom: -108px;
+    left: 17px;
+    width: 52%;
+    margin-bottom: 93px;
+}
+ 
+  .left-section,
+  .right-section {
+    flex: 1;
+    margin: 5px 0;
+  }
+
+  .logo {
+    width: 70%;
+    left: 21px;
+    bottom: -50px;
+  }
+
+  .img-box_NTS {
+    max-width: 80px;
+  }
+  .common-title {
+    bottom: -86px;
+  }
+
+  .label {
+  right: 225px;
+  position: absolute;
+  top: 49px;
+  margin: 48px;
+  }
+
+  .img-box_NTS {
+    max-width: 104px;
+    bottom: -25px;
+    position: relative;
+    left: 282px;
+    width: 115px;
+  }
+  
+  .admin-icon {
+    position: relative;
+    bottom: 30px;
+    left: -310px;
+    font-size: 31px;
+    cursor: pointer;
+  }
+
+  .spazio-vuoto {
+    display: none;
+  }
+  
+}
+
+
+@media (max-width: 715px){
+
+  .img-box_NTS {
+    max-width: 104px;
+    bottom: -25px;
+    position: relative;
+    left: 261px;
+    width: 115px;
+  }
+  
+  .admin-icon {
+    position: relative;
+    bottom: 30px;
+    left: -282px;
+    font-size: 31px;
+    cursor: pointer;
+  }
+
+  .label {
+    right: 179px;
+    position: absolute;
+    top: 49px;
+    margin: 48px;
+}
+
+.logo {
+  width: 77%;
+  left: 21px;
+  bottom: -50px;
+}
+
+.spazio-vuoto {
+  display: none;
+}
+
+}
+
+
+
+
+@media (max-width: 715px){
+
+  .img-box_NTS {
+    max-width: 104px;
+    bottom: -25px;
+    position: relative;
+    left: 261px;
+    width: 115px;
+  }
+  
+  .admin-icon {
+    position: relative;
+    bottom: 30px;
+    left: -282px;
+    font-size: 31px;
+    cursor: pointer;
+  }
+
+.label {
+    right: 179px;
+    position: absolute;
+    top: 49px;
+    margin: 48px;
+}
+
+.logo {
+  width: 77%;
+  left: 21px;
+  bottom: -50px;
+}
+
+.spazio-vuoto {
+  display: none;
+}
+}
+
+/* Media Query for small screens */
+@media (max-width: 480px) {
+  .common-title {
+    left: 3px;
+    font-size: 29px;
+    bottom: -65px;
+  }
+
+  .logo {
+    width: 75%;
+    bottom: -50px;
+    left: 2px;
+    right: 87px;
+    
+  }
+
+  button {
+    font-size: 14px;
+  }
+
+  .img-box {
+    position: relative;
+    bottom: -87px;
+    left: -3px;
+    width: 52%;
+    margin-bottom: 93px;
+}
+
+.label {
+  right: 62px;
+  position: absolute;
+  top: 41px;
+  margin: 48px;
+  font-size: 14px;
+}
+
+.img-box_NTS {
+  max-width: 104px;
+  bottom: -25px;
+  position: relative;
+  left: 108px;
+  width: 115px;
+}
+
+.admin-icon {
+  position: relative;
+  bottom: 30px;
+  left: -133px;
+  font-size: 31px;
+  cursor: pointer;
+}
+
+.spazio-vuoto {
+  display: none;
+}
+
+}
+
